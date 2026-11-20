@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetVersion": "fixture-0.1.0",
+  "rulesetId": "fictional-mag-fixture",
+  "generatedAt": "2026-01-01T00:00:00.000Z",
+  "elementCountByApparatus": {
+    "HB": 2
+  },
+  "sourceDocuments": []
+}
