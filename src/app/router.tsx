@@ -3,7 +3,13 @@ import {
   createRoute,
   createRouter,
 } from "@tanstack/react-router";
-import { HomePage, RootLayout } from "./route-components";
+import {
+  ApparatusPage,
+  ElementDetailPage,
+  HomePage,
+  RoutineBuilderPage,
+  RootLayout,
+} from "./route-components";
 
 const rootRoute = createRootRoute({
   component: RootLayout,
@@ -15,7 +21,30 @@ const indexRoute = createRoute({
   component: HomePage,
 });
 
-const routeTree = rootRoute.addChildren([indexRoute]);
+const apparatusRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/apparatus/$apparatus",
+  component: ApparatusPage,
+});
+
+const routineRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/apparatus/$apparatus/routine",
+  component: RoutineBuilderPage,
+});
+
+const elementRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/apparatus/$apparatus/elements/$elementId",
+  component: ElementDetailPage,
+});
+
+const routeTree = rootRoute.addChildren([
+  indexRoute,
+  apparatusRoute,
+  routineRoute,
+  elementRoute,
+]);
 
 const basepath = import.meta.env.BASE_URL.replace(/\/$/, "");
 

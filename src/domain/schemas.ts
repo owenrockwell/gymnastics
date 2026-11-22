@@ -46,8 +46,8 @@ export const difficultyLetterSchema = z.enum([
 ]);
 
 export const difficultyValueSchema = z.object({
-  letter: difficultyLetterSchema,
-  numericValue: z.number().nonnegative(),
+  letter: z.union([difficultyLetterSchema, z.literal("unknown")]),
+  numericValue: z.number().nonnegative().nullable(),
   rulesetId: z.string().min(1),
 });
 

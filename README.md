@@ -13,7 +13,8 @@ fictional test fixtures, not FIG catalogue or scoring data.
 - Zod validation and Vitest domain tests
 
 The database is local to the current browser profile. Clearing site data
-can remove it; routine export/backup is not implemented yet.
+can remove it. Routines can be exported and imported as versioned JSON backups
+through the storage repository.
 
 ## Development
 
